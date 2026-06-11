@@ -1,0 +1,7 @@
+{
+  "dependencies": ["."],
+  "graphs": {
+    "legend_agent": "./src/legendagents/agents/graph.py:graph"
+  },
+  "env": ".env"
+}
