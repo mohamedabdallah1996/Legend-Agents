@@ -10,13 +10,12 @@ class Prompt:
         self._local_prompt = prompt
         self._opik_prompt: opik.Prompt | None = None
 
-        if settings.OPIK_API_KEY:
-            try:
-                self._opik_prompt = opik.Prompt(name=name, prompt=prompt)
-            except Exception:
-                logger.warning(
-                    f"Opik: failed to sync prompt '{name}'. Falling back to local prompt."
-                )
+        try:
+            self._opik_prompt = opik.Prompt(name=name, prompt=prompt)
+        except Exception:
+            logger.warning(
+                f"Opik: failed to sync prompt '{name}'. Falling back to local prompt."
+            )
 
     @property
     def prompt(self) -> str:

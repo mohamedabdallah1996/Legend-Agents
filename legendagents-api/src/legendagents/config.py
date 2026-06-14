@@ -19,8 +19,14 @@ class Settings(BaseSettings):
     # --- LangSmith Tracing (optional) ---
     LANGSMITH_API_KEY: str = ""
 
-    # --- Opik Prompt Versioning (optional) ---
-    OPIK_API_KEY: str = ""
+    # --- Comet ML & Opik Configuration ---
+    COMET_API_KEY: str | None = Field(
+        default=None, description="API key for Comet ML and Opik services."
+    )
+    COMET_PROJECT: str = Field(
+        default="legend-agents",
+        description="Project name for Comet ML and Opik tracking.",
+    )
 
 
 settings = Settings()
